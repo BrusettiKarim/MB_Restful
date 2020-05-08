@@ -10,6 +10,7 @@ import entity.Post;
 import java.util.List;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -28,6 +29,11 @@ public class PostService
         return posts;
     }
 
-
-
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Post getPost(@PathParam("id") String postId) {
+        Post p = PostDAO.findPost(Long.parseLong(postId));
+        return p;
+    }
 }
