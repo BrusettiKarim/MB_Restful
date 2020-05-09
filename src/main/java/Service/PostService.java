@@ -45,6 +45,5 @@ public class PostService
     public void addPost(Post p) {
         p.setDataOra(new Date());
         PostDAO.create(p);
-
 }
 }
